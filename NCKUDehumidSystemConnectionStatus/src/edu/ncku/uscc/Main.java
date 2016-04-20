@@ -41,14 +41,14 @@ public class Main {
 
 		try {
 			Log.init();
-
+			
 			// start the modbus tcp slave thread
 			ModbusTCPSlave slave = new ModbusTCPSlave(9);
 			slave.initialize();
 			Log.info("Modbus TCP Slave Started...");
 
 			ScheduledExecutorService service = Executors.newScheduledThreadPool(2);
-			service.submit(new PortScanTask(new DataStoreManager(slave)));
+//			service.submit(new PortScanTask(new DataStoreManager(slave)));
 			service.submit(new HeartBeatAccepter());
 
 			LATCH.await();

@@ -57,7 +57,7 @@ public class HeartBeatAccepter implements Runnable, IHeartBeat {
 					if (is.read() != HEART_BEAT) {
 						throw new IOException("Not expect!");
 					} else {
-//						Log.debug("Receive hello from client...");
+						Log.debug("Receive hello from client...");
 					}
 				} catch (SocketTimeoutException e) {
 					Log.error("Timeout...");
